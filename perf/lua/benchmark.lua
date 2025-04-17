@@ -102,6 +102,7 @@ local GENERAL_HELP = [[
    output <string>                   - filename to dump the benchmark results
    output_format <string, 'console'> - format (console, json) in which results
                                        are dumped
+   benchmark_list_tests              - list tests
 
  Options can be used with '--', followed by the value if it's not a boolean
  option.
@@ -118,6 +119,7 @@ function M.argparse(arg, argtable, custom_help)
     table.insert(argtable, {'help', 'boolean'})
     table.insert(argtable, {'output', 'string'})
     table.insert(argtable, {'output_format', 'string'})
+    table.insert(argtable, {'benchmark_list_tests', 'boolean'})
     local params = argparse.parse(arg, argtable)
     if params.h or params.help then
         local help_msg = usageline .. GENERAL_HELP
